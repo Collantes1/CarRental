@@ -1,0 +1,898 @@
+﻿<Window x:Class="CarRental.Forms.ClientInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CarRental.Forms"
+        mc:Ignorable="d"
+        Height="750" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True" Loaded="Window_Loaded">
+    <Border CornerRadius="10"
+            BorderThickness="1"
+            Opacity="1"
+            BorderBrush="#e3e3e3"
+            Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <!--Header-->
+            <Grid Grid.Row="0">
+                <TextBlock Text="Информация о клиенте"
+                           Foreground="#243970"
+                           FontFamily="Segoe UI"
+                           FontSize="19"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <fa:IconImage Icon="Xmark"
+                              x:Name="ImageClose"
+                              HorizontalAlignment="Right"
+                              Height="25"
+                              Width="15"
+                              Margin="0,0,5,0"
+                              MouseDown="ImageClose_MouseDown"/>
+                <fa:IconImage Icon="Minus"
+                              x:Name="ImageHide"
+                              HorizontalAlignment="Right"
+                              Height="25"
+                              Width="16"
+                              Margin="0,0,26,0"
+                              MouseDown="ImageHide_MouseDown"/>
+            </Grid>
+
+            <!--Navigation and Body-->
+            <Grid Grid.Row="1" Margin="10,0,10,0">
+                <TabControl materialDesign:ColorZoneAssist.Background="White"
+                            materialDesign:ColorZoneAssist.Foreground="CornflowerBlue"
+                            materialDesign:ColorZoneAssist.Mode="Custom" >
+                    <TabItem Header="Основная информация">
+                        <Grid Margin="0,5,0,0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <GroupBox FontSize="12"
+                                          FontWeight="Medium"
+                                          materialDesign:ColorZoneAssist.Mode="Custom"
+                                          materialDesign:ColorZoneAssist.Background="#dddddd"
+                                          materialDesign:ColorZoneAssist.Foreground="Black"
+                                          Style="{StaticResource MaterialDesignGroupBox}"
+                                          Header="Основная информация" Margin="0,0,10,10">
+
+                                    <Grid x:Name="GridCLientInfo">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid>
+                                            <Label Content="Ф.И.О:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <TextBox x:Name="SurnameCLient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <TextBox x:Name="NameClient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Column="3">
+                                            <TextBox x:Name="PatronymicClient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Label Content="Дата рождения:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="1">
+                                            <DatePicker x:Name="BirthdayClient"
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Center"
+                                                        Margin="5,0,0,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="2">
+                                            <Label Content="Место рождения:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                                            <TextBox x:Name="BirthPlaceClient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3">
+                                            <Label Content="Пол:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="1">
+                                            <RadioButton x:Name="MaleGenderClient"
+                                                         GroupName="Gender"
+                                                         Content="Мужской"
+                                                         VerticalAlignment="Stretch"
+                                                         Margin="5,0,0,0" Foreground="#DD000000"
+                                                         Checked="MaleGenderClient_Checked"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="2">
+                                            <RadioButton x:Name="FemaleGenderClient"
+                                                         GroupName="Gender"
+                                                         Content="Женский"
+                                                         VerticalAlignment="Stretch"
+                                                         Margin="5,0,0,0" Foreground="#DD000000"
+                                                         Checked="FemaleGenderClient_Checked"/>
+                                        </Grid>
+                                        <Grid Grid.Row="4" Grid.Column="0">
+                                            <Label Content="Организация:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+                                            <TextBox x:Name="WorkPlaceClient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="5" Grid.ColumnSpan="2">
+                                            <CheckBox Content="Состоит в черном списке"
+                                                      x:Name="BlackListCheckBox"
+                                                      HorizontalAlignment="Right"
+                                                      VerticalAlignment="Center" Foreground="#DD000000"
+                                                      Margin="0,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2">
+                                            <CheckBox Content="Отправлять сообщение в день рождения"
+                                                      x:Name="SendingSMSCheckBox"
+                                                      HorizontalAlignment="Left"
+                                                      VerticalAlignment="Center" Foreground="#DD000000"/>
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+
+                            <Grid Grid.Row="1" Grid.Column="0">
+                                <GroupBox FontSize="12"
+                                          FontWeight="Medium"
+                                          materialDesign:ColorZoneAssist.Mode="Custom"
+                                          materialDesign:ColorZoneAssist.Background="#dddddd"
+                                          materialDesign:ColorZoneAssist.Foreground="Black"
+                                          Style="{StaticResource MaterialDesignGroupBox}"
+                                          Header="Паспортные данные" Margin="0,0,10,0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid>
+                                            <Label Content="Серия:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <TextBox x:Name="SeriesPassport"
+                                                     Text="0"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <Label Content="Номер:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="3">
+                                            <TextBox x:Name="NumberPassport"
+                                                     Text="0"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Label Content="Выдан:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                                            <ComboBox x:Name="DivisionName"
+                                                      HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Center"
+                                                      Margin="5,0,5,0"
+                                                      IsEditable="false"
+                                                      SelectionChanged="DivisionName_SelectionChanged">
+                                                <ComboBox.ItemContainerStyle>
+                                                    <Style TargetType="ComboBoxItem">
+                                                        <Setter Property="Width" Value="370"/>
+                                                    </Style>
+                                                </ComboBox.ItemContainerStyle>
+
+                                            </ComboBox>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="0">
+                                            <Label Content="Код подразделения:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="1">
+                                            <TextBox x:Name="DivisionCode"
+                                                     Text="0"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="2">
+                                            <Label Content="Страна выдачи:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="3">
+                                            <TextBox x:Name="CountryOfIssuePassport"
+                                                     Text="-"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="0">
+                                            <Label Content="Дата выдачи:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="1">
+                                            <DatePicker x:Name="DateOfIssuePassport"
+                                                        SelectedDate="01.01.2023"
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Center"
+                                                        Margin="5,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="4">
+                                            <Label Content="Место жительства:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3">
+                                            <TextBox x:Name="RegistrationPassport"
+                                                     Text="-"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"/>
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <GroupBox FontSize="12"
+                                          FontWeight="Medium"
+                                          materialDesign:ColorZoneAssist.Mode="Custom"
+                                          materialDesign:ColorZoneAssist.Background="#dddddd"
+                                          materialDesign:ColorZoneAssist.Foreground="Black"
+                                          Style="{StaticResource MaterialDesignGroupBox}"
+                                          Header="Прочая информация и фотография клиента" Margin="10,0,0,0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="40"/>
+
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.RowSpan="3">
+                                            <TextBox AcceptsReturn="True"
+                                                     x:Name="OtherInfoClient"
+                                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                                     TextWrapping="Wrap"
+                                                     VerticalScrollBarVisibility="Auto"
+                                                     VerticalAlignment="Top"
+                                                     Margin="0,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="0" Grid.Column="1">
+                                            <Image x:Name="PhotoClient" Height="160" Width="160"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="1">
+                                            <Button x:Name="ButtonAddPhotoClient"
+                                                    BorderThickness="0"
+                                                    Content="Добавить"
+                                                    Foreground="White"
+                                                    Background="#FA896B"
+                                                    FontSize="14"
+                                                    FontFamily="Segoe UI"
+                                                    Cursor="Hand"
+                                                    Margin="0,0,0,0"
+                                                    Click="ButtonAddPhotoClient_Click" Width="125"
+                                                    materialDesign:ButtonAssist.CornerRadius="6"
+                                                    HorizontalAlignment="Left"/>
+                                            <Button x:Name="ButtonDeletePhotoClient"
+                                                    BorderThickness="0"
+                                                    Content="Удалить"
+                                                    Foreground="White"
+                                                    Background="#FA896B"
+                                                    FontSize="14"
+                                                    FontFamily="Segoe UI"
+                                                    Cursor="Hand"
+                                                    Margin="130,0,0,0"
+                                                    Click="ButtonDeletePhotoClient_Click" Width="125"
+                                                    materialDesign:ButtonAssist.CornerRadius="6"
+                                                    HorizontalAlignment="Left"/>
+                                        </Grid>
+                                    </Grid>
+
+                                </GroupBox>
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <GroupBox FontSize="12"
+                                          FontWeight="Medium"
+                                          materialDesign:ColorZoneAssist.Mode="Custom"
+                                          materialDesign:ColorZoneAssist.Background="#dddddd"
+                                          materialDesign:ColorZoneAssist.Foreground="Black"
+                                          Style="{StaticResource MaterialDesignGroupBox}"
+                                          Header="Водительское удостоверение" Margin="10,0,0,166">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid>
+                                            <Label Content="Номер:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <TextBox x:Name="NumberDriverLicense"
+                                                     Text="0"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <Label Content="Подразделение:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="3">
+                                            <TextBox x:Name="IssuedDriverLicense"
+                                                     Text="-"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Row="3">
+                                            <Label Content="Дата выдачи:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="1">
+                                            <DatePicker x:Name="DateOfIssueDriverLicense"
+                                                        SelectedDate="01.01.2023"
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Center"
+                                                        Margin="5,0,5,0"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="2">
+                                            <Label Content="Действительный до:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="3">
+                                            <DatePicker x:Name="ValidDriverLicense"
+                                                        SelectedDate="01.01.2023"
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Center"
+                                                        Margin="5,0,5,0"/>
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+
+                                <GroupBox FontSize="12" Grid.RowSpan="1"
+                                          FontWeight="Medium"
+                                          materialDesign:ColorZoneAssist.Mode="Custom"
+                                          materialDesign:ColorZoneAssist.Background="#dddddd"
+                                          materialDesign:ColorZoneAssist.Foreground="Black"
+                                          Style="{StaticResource MaterialDesignGroupBox}"
+                                          Header="Контакнтные данные" Margin="10,160,0,10">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid>
+                                            <Label Content="Номер телефона:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <TextBox x:Name="NumberPhoneClient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Column="2">
+                                            <Label Content="Доп. номер:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Column="3">
+                                            <TextBox x:Name="OtherNumberPhoneClient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Label Content="Адрес почты:"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                                            <TextBox x:Name="EmailClient"
+                                                     HorizontalAlignment="Stretch"
+                                                     VerticalAlignment="Center"
+                                                     Margin="5,0,5,0"
+                                                     />
+                                        </Grid>
+
+                                    </Grid>
+
+                                </GroupBox>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="История аренды">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Header-->
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Horizontal"
+                                                VerticalAlignment="Top">
+                                        <materialDesign:PackIcon Kind="CarSearch" Height="30" Width="30" Foreground="Gray"/>
+                                        <TextBox x:Name="SearchRent"
+                                                 FontSize="14"
+                                                 Height="30"
+                                                 Width="494"
+                                                 Background="Transparent"
+                                                 FontWeight="Medium"
+                                                 Foreground="#243970"
+                                                 CaretBrush="#243970"
+                                                 BorderBrush="Gray"
+                                                 BorderThickness="0,0,0,1"
+                                                 VerticalAlignment="Center"
+                                                 Margin="5,5,0,5"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                            <!--Body-->
+                            <Grid Grid.Row="1">
+                                <DataGrid AutoGenerateColumns="False"
+                                          Margin="0,0,0,5"
+                                          CanUserAddRows="False"
+                                          HeadersVisibility="All"
+                                          x:Name="RentHistoryGrid" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding UserID}" Header="№" Width="auto"/>
+                                        <DataGridTextColumn Binding="{Binding UserSurname}" Header="Название автомобиля" Width="250"/>
+                                        <DataGridTextColumn Binding="{Binding UserName}" Header="Дата аренды" Width="150"/>
+                                        <DataGridTextColumn Binding="{Binding UserPatronymic}" Header="Конец аренды" Width="150"/>
+                                        <DataGridTextColumn Binding="{Binding UserLogin}" Header="Стоимость" Width="*"/>
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
+                            </Grid>
+                            <!--Footer-->
+                            <Grid Grid.Row="2">
+                                <Button x:Name="ButtonInfoRent"
+                                        BorderThickness="0"
+                                        Content="Посмотреть информацию о аренде"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Click="ButtonInfoRent_Click" Width="300"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Файлы">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Header-->
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Horizontal"
+                                                VerticalAlignment="Top">
+                                        <materialDesign:PackIcon Kind="FileSearch" Height="25" Width="25" Foreground="Gray" Margin="0,8,0,0"/>
+                                        <TextBox x:Name="SearchFielsClient"
+                                                 FontSize="14"
+                                                 Height="30"
+                                                 Width="494"
+                                                 Background="Transparent"
+                                                 FontWeight="Medium"
+                                                 Foreground="#243970"
+                                                 CaretBrush="#243970"
+                                                 BorderBrush="Gray"
+                                                 BorderThickness="0,0,0,1"
+                                                 VerticalAlignment="Center"
+                                                 Margin="5,5,0,5"
+                                                 TextChanged="SearchFielsClient_TextChanged"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Button x:Name="ButtonUpdateFileGrid"
+                                        BorderThickness="0"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0"
+                                        Click="ButtonUpdateFileGrid_Click" Width="40" Height="30"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Left">
+                                        <materialDesign:PackIcon Kind="Refresh" Height="20" Width="25" Margin="-11,0,0,0" Foreground="White"/>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                            <!--Body-->
+                            <Grid Grid.Row="1">
+                                <DataGrid AutoGenerateColumns="False"
+                                          Margin="0,0,0,5"
+                                          CanUserAddRows="False"
+                                          HeadersVisibility="All"
+                                          x:Name="FielsClientGrid" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding ClientFileID}" Header="№" Width="auto"/>
+                                        <DataGridTextColumn Binding="{Binding CFileName}" Header="Название файла" Width="200"/>
+                                        <DataGridTextColumn Binding="{Binding CFileDate, StringFormat=d}" Header="Дата создания" Width="150"/>
+                                        <DataGridTextColumn Binding="{Binding User.UserFullName}" Header="Добавил сотрудник" Width="200"/>
+                                        <DataGridTextColumn Binding="{Binding CFileDescription}" Header="Описание" Width="*"/>
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
+                            </Grid>
+                            <!--Footer-->
+                            <Grid Grid.Row="2">
+                                <Button x:Name="ButtonAddFile"
+                                        BorderThickness="0"
+                                        Content="Добавить файл"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0,0,360,0"
+                                        Click="ButtonAddFile_Click" Width="170"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Right"/>
+                                <Button x:Name="ButtonEditFile"
+                                        BorderThickness="0"
+                                        Content="Редактировать файл"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0,0,180,0"
+                                        Click="ButtonEditFile_Click" Width="170"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Right"/>
+                                <Button x:Name="ButtonInfoFile"
+                                        BorderThickness="0"
+                                        Content="Посмотреть файл"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0,0,0,0"
+                                        Click="ButtonInfoFile_Click" Width="170"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Штрафы">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Header-->
+                            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Horizontal"
+                                                VerticalAlignment="Top">
+                                        <materialDesign:PackIcon Kind="ClipboardTextSearchOutline" Height="30" Width="30" Foreground="Gray"/>
+                                        <TextBox x:Name="SearchPenaltiesClient"
+                                                 FontSize="14"
+                                                 Height="30"
+                                                 Width="494"
+                                                 Background="Transparent"
+                                                 FontWeight="Medium"
+                                                 Foreground="#243970"
+                                                 CaretBrush="#243970"
+                                                 BorderBrush="Gray"
+                                                 BorderThickness="0,0,0,1"
+                                                 VerticalAlignment="Center"
+                                                 Margin="5,5,0,5"
+                                                 TextChanged="SearchPenaltiesClient_TextChanged"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Button x:Name="ButtonUpdatePenalties"
+                                        BorderThickness="0"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0"
+                                        Click="ButtonUpdatePenalties_Click" Width="40" Height="30"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Left">
+                                        <materialDesign:PackIcon Kind="Refresh" Height="20" Width="25" Margin="-11,0,0,0" Foreground="White"/>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                            <!--Body-->
+                            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                                <DataGrid AutoGenerateColumns="False"
+                                          Margin="0,0,0,5"
+                                          CanUserAddRows="False"
+                                          HeadersVisibility="All"
+                                          x:Name="PenaltiesClientGrid" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding CPenaltiesID}" Header="№" Width="48"/>
+                                        <DataGridTextColumn Binding="{Binding CPDateOfViolation, StringFormat=d}" Header="Дата нарушения" Width="135"/>
+                                        <DataGridTextColumn Binding="{Binding CarInfo.Stamp.StampName}" Header="Автомобиль" Width="120"/>
+                                        <DataGridTextColumn Binding="{Binding Client.ClientFullname}" Header="Клиент" Width="200"/>
+                                        <DataGridTemplateColumn Header="Статья КоАП" Width="110">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Article.ArticleName}" ToolTip="{Binding Article.ArticleName}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Binding="{Binding CPAmountOfTheFine}" Header="Сумма штрафа" Width="125"/>
+                                        <DataGridTextColumn Binding="{Binding CPDiscountedAmount}" Header="Сумма со скидкой" Width="145"/>
+                                        <DataGridTextColumn Binding="{Binding CPPaidFor}" Header="Оплачен" Width="*"/>
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
+                            </Grid>
+                            <!--Footer-->
+                            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                                <Button x:Name="ButtonAddPenalties"
+                                        BorderThickness="0"
+                                        Content="Добавить штраф"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0,0,190,0"
+                                        Click="ButtonAddPenalties_Click" Width="180"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Right"/>
+                                <Button x:Name="ButtonEditPenalties"
+                                        BorderThickness="0"
+                                        Content="Редактировать штраф"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0,0,0,0"
+                                        Click="ButtonEditPenalties_Click" Width="180"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Сообщения">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Header-->
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Horizontal"
+                                                VerticalAlignment="Top">
+                                        <materialDesign:PackIcon Kind="EmailSearchOutline" Height="30" Width="30" Foreground="Gray"/>
+                                        <TextBox x:Name="SearchMessageClient"
+                                                 FontSize="14"
+                                                 Height="30"
+                                                 Width="494"
+                                                 Background="Transparent"
+                                                 FontWeight="Medium"
+                                                 Foreground="#243970"
+                                                 CaretBrush="#243970"
+                                                 BorderBrush="Gray"
+                                                 BorderThickness="0,0,0,1"
+                                                 VerticalAlignment="Center"
+                                                 Margin="5,5,0,5"
+                                                 TextChanged="SearchMessageClient_TextChanged"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Button x:Name="ButtonUpdateMailGrid"
+                                        BorderThickness="0"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Margin="0"
+                                        Click="ButtonUpdateMailGrid_Click" Width="40" Height="30"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Left">
+                                        <materialDesign:PackIcon Kind="Refresh" Height="20" Width="25" Margin="-11,0,0,0" Foreground="White"/>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                            <!--Body-->
+                            <Grid Grid.Row="1">
+                                <DataGrid AutoGenerateColumns="False"
+                                          Margin="0,0,0,5"
+                                          CanUserAddRows="False"
+                                          HeadersVisibility="All"
+                                          x:Name="MessagesClientGrid" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding MessageID}" Header="№" Width="auto"/>
+                                        <DataGridTextColumn Binding="{Binding MsgTema}" Header="Тема сообщения" Width="150"/>
+                                        <DataGridTemplateColumn Header="Содержание сообщения" Width="400">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding MsgBody}" ToolTip="{Binding MsgBody}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Binding="{Binding MsgSendingTime, StringFormat=d}" Header="Дата отправки сообщения" Width="*"/>
+                                        <DataGridTextColumn Binding="{Binding MsgStatus}" Header="Статус сообщения" Width="*"/>
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
+                            </Grid>
+                            <!--Footer-->
+                            <Grid Grid.Row="2">
+                                <Button x:Name="ButtonAddMessage"
+                                        BorderThickness="0"
+                                        Content="Отправить сообщение"
+                                        Foreground="White"
+                                        Background="#FA896B"
+                                        FontSize="14"
+                                        FontFamily="Segoe UI"
+                                        Cursor="Hand"
+                                        Click="ButtonAddMessage_Click" Width="190"
+                                        materialDesign:ButtonAssist.CornerRadius="6"
+                                        HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+
+            <!--Footer-->
+            <!--Footer-->
+            <Grid Grid.Row="2">
+                <Button x:Name="ButtonSaveClient"
+                        BorderThickness="0"
+                        Content="Сохранить информацию"
+                        Foreground="White"
+                        Background="#FA896B"
+                        FontSize="14"
+                        FontFamily="Segoe UI"
+                        Cursor="Hand"
+                        Margin="15,0,0,0"
+                        Click="ButtonSaveClient_Click" Width="250" Height="30"
+                        materialDesign:ButtonAssist.CornerRadius="6"
+                        HorizontalAlignment="Left"/>
+            </Grid>
+        </Grid>
+
+
+    </Border>
+</Window>

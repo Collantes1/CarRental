@@ -1,0 +1,122 @@
+﻿<Page x:Class="CarRental.Forms.PageFrame.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:CarRental.Forms.PageFrame"
+      mc:Ignorable="d" 
+      d:DesignHeight="810" d:DesignWidth="1310">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        
+        <!--Header-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Top">
+                    <materialDesign:PackIcon Kind="AccountSearch" Height="25" Width="25" Foreground="Gray" Margin="0,10,0,0"/>
+                        <TextBox x:Name="SearchClient"
+                                 FontSize="14"
+                                 Height="30"
+                                 Width="610"
+                                 Background="Transparent"
+                                 FontWeight="Medium"
+                                 Foreground="#243970"
+                                 CaretBrush="#243970"
+                                 BorderBrush="Gray"
+                                 BorderThickness="0,0,0,1"
+                                 VerticalAlignment="Center"
+                                 Margin="5,5,0,0"
+                                 TextChanged="SearchClient_TextChanged"/>
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button x:Name="ButtonUpdateClientGrid"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Background="#FA896B"
+                        FontSize="14"
+                        FontFamily="Segoe UI"
+                        Cursor="Hand"
+                        Margin="0"
+                        Click="ButtonUpdateClientGrid_Click" Width="40" Height="30"
+                        materialDesign:ButtonAssist.CornerRadius="6"
+                            HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="Refresh" Height="20" Width="25" Margin="-11,0,0,0" Foreground="White"/>
+                </Button>
+            </Grid>
+        </Grid>
+        <!--Body-->
+
+        <Grid Grid.Row="1">
+
+            <DataGrid AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      HeadersVisibility="All"
+                      x:Name="ClientGrid" CanUserDeleteRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding ClientID}" Header="№" Width="auto"/>
+                    <DataGridTextColumn Binding="{Binding ClientFullname}" Header="Ф.И.О." Width="220"/>
+                    <DataGridTextColumn Binding="{Binding ClientNumberPhone}" Header="Номер телефона" Width="140"/>
+                    <DataGridTextColumn Binding="{Binding ClientEmail}" Header="Адрес почты" Width="200"/>
+                    <DataGridCheckBoxColumn Binding="{Binding ClientBlackList}" Header="Состоит в ЧС" Width="140"/>
+                    <DataGridTextColumn Binding="{Binding ClientOtherInfo}" Header="Прочее" Width="*"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+        </Grid>
+        
+        <!--Footer-->
+        <Grid Grid.Row="2" VerticalAlignment="Center">
+            <Button x:Name="ButtonAddClient"
+                        BorderThickness="0"
+                        Content="Добавить"
+                        Foreground="White"
+                        Background="#FA896B"
+                        FontSize="14"
+                        FontFamily="Segoe UI"
+                        Cursor="Hand"
+                        Margin="15,0,0,0"
+                        Click="ButtonAddClient_Click" Width="250"
+                        materialDesign:ButtonAssist.CornerRadius="6"
+                        HorizontalAlignment="Left">
+                <!--<Button.ToolTip>
+                    <ToolTip Background="White"
+                             Foreground="Black"
+                             Placement="Relative"
+                             HasDropShadow="True"
+                             HorizontalOffset="15"
+                             VerticalOffset="10">
+                        <TextBlock Text="При нажатии на эту кнопку, откроется окно с добавлением нового сотрудника в систему"/>
+                    </ToolTip>
+                </Button.ToolTip>-->
+            </Button>
+
+            <Button x:Name="ButtonEditClient"
+                        BorderThickness="0"
+                        Content="Редактировать"
+                        Foreground="White"
+                        Background="#FA896B"
+                        FontSize="14"
+                        FontFamily="Segoe UI"
+                        Cursor="Hand"
+                        Margin="280,0,0,0"
+                        Click="ButtonEditClient_Click" Width="250"
+                        materialDesign:ButtonAssist.CornerRadius="6"
+                        HorizontalAlignment="Left"/>
+        </Grid>
+    </Grid>
+</Page>

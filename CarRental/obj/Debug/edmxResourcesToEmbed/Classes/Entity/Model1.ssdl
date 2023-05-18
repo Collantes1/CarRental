@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CarRentalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actions">
+    <Key>
+      <PropertyRef Name="ActionID" />
+    </Key>
+    <Property Name="ActionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleID" />
+    </Key>
+    <Property Name="ArticleID" Type="int" Nullable="false" />
+    <Property Name="ArticleName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Body">
+    <Key>
+      <PropertyRef Name="BodyID" />
+    </Key>
+    <Property Name="BodyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BodyName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BodyNumberPlace" Type="int" Nullable="false" />
+    <Property Name="BodyNumberDoors" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarInfo">
+    <Key>
+      <PropertyRef Name="CarID" />
+    </Key>
+    <Property Name="CarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarModel" Type="int" Nullable="false" />
+    <Property Name="CarStamp" Type="int" Nullable="false" />
+    <Property Name="CarBody" Type="int" Nullable="false" />
+    <Property Name="CarClass" Type="int" Nullable="false" />
+    <Property Name="CarYear" Type="int" Nullable="false" />
+    <Property Name="CarColor" Type="int" Nullable="false" />
+    <Property Name="CarEngineCapacity" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CarEnginePower" Type="int" Nullable="false" />
+    <Property Name="CarTransmission" Type="int" Nullable="false" />
+    <Property Name="CarDrive" Type="int" Nullable="false" />
+    <Property Name="CarOverclocking" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CarFuelConsumption" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CarFuelType" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CarTankCapacity" Type="int" Nullable="false" />
+    <Property Name="CarTankVolume" Type="int" Nullable="false" />
+    <Property Name="CarMileage" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CarPriceDay" Type="int" Nullable="false" />
+    <Property Name="CarPhoto" Type="image" />
+    <Property Name="CarStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassID" />
+    </Key>
+    <Property Name="ClassID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientSurname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientPatronymic" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientGender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientBirthDate" Type="date" Nullable="false" />
+    <Property Name="ClientBirthPlace" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientWorkPlace" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientSendingSMS" Type="bit" Nullable="false" />
+    <Property Name="ClientBlackList" Type="bit" Nullable="false" />
+    <Property Name="ClientNumberPhone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientOtherNumberPhone" Type="nvarchar(max)" />
+    <Property Name="ClientEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientOtherInfo" Type="nvarchar(max)" />
+    <Property Name="ClientPhoto" Type="image" Nullable="false" />
+    <Property Name="ClientUserAdd" Type="int" Nullable="false" />
+    <Property Name="ClientUserAddDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientFiles">
+    <Key>
+      <PropertyRef Name="ClientFileID" />
+    </Key>
+    <Property Name="ClientFileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="CFileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CFileDescription" Type="nvarchar(max)" />
+    <Property Name="CFileDate" Type="date" Nullable="false" />
+    <Property Name="CFileUser" Type="int" Nullable="false" />
+    <Property Name="CFileData" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientPenalties">
+    <Key>
+      <PropertyRef Name="CPenaltiesID" />
+    </Key>
+    <Property Name="CPenaltiesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CPDateOfViolation" Type="date" Nullable="false" />
+    <Property Name="CPDateOfTheResolution" Type="date" Nullable="false" />
+    <Property Name="CPCarID" Type="int" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="CPArticleID" Type="int" Nullable="false" />
+    <Property Name="CPAmountOfTheFine" Type="int" Nullable="false" />
+    <Property Name="CPDiscountedAmount" Type="int" Nullable="false" />
+    <Property Name="CPPaidFor" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="ColorID" />
+    </Key>
+    <Property Name="ColorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DivisionsFMS">
+    <Key>
+      <PropertyRef Name="DivisionFMSID" />
+    </Key>
+    <Property Name="DivisionFMSID" Type="int" Nullable="false" />
+    <Property Name="DivisionName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DivisionCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Drive">
+    <Key>
+      <PropertyRef Name="DriveID" />
+    </Key>
+    <Property Name="DriveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriveName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DriverLicense">
+    <Key>
+      <PropertyRef Name="DriverLicenseID" />
+    </Key>
+    <Property Name="DriverLicenseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="DLNumber" Type="int" Nullable="false" />
+    <Property Name="DLIssued" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DLDateOfIssue" Type="date" Nullable="false" />
+    <Property Name="DLValid" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MsgSender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MsgClientID" Type="int" Nullable="false" />
+    <Property Name="MsgTema" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MsgBody" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MsgSendingTime" Type="date" Nullable="false" />
+    <Property Name="MsgStatus" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="ModelID" />
+    </Key>
+    <Property Name="ModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passports">
+    <Key>
+      <PropertyRef Name="PassportID" />
+    </Key>
+    <Property Name="PassportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="PCountryOfIssue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PSeries" Type="int" Nullable="false" />
+    <Property Name="PNumber" Type="int" Nullable="false" />
+    <Property Name="PGivenID" Type="int" Nullable="false" />
+    <Property Name="PDateOfIssue" Type="date" Nullable="false" />
+    <Property Name="PRegistration" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stamp">
+    <Key>
+      <PropertyRef Name="StampID" />
+    </Key>
+    <Property Name="StampID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StampName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Transmission">
+    <Key>
+      <PropertyRef Name="TransmissionID" />
+    </Key>
+    <Property Name="TransmissionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransmissionName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserPatronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserLogin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleName" Type="int" Nullable="false" />
+    <Property Name="UserEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserPhoneNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserAccess" Type="bit" Nullable="false" />
+    <Property Name="UserUniqueCode" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CarInfo__CarBody__662B2B3B">
+    <End Role="Body" Type="Self.Body" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Body">
+        <PropertyRef Name="BodyID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarBody" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarInfo__CarClas__671F4F74">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarInfo__CarColo__681373AD">
+    <End Role="Color" Type="Self.Color" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ColorID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarColor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarInfo__CarDriv__69FBBC1F">
+    <End Role="Drive" Type="Self.Drive" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drive">
+        <PropertyRef Name="DriveID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarDrive" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarInfo__CarMode__6442E2C9">
+    <End Role="Model" Type="Self.Model" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Model">
+        <PropertyRef Name="ModelID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarModel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarInfo__CarStam__65370702">
+    <End Role="Stamp" Type="Self.Stamp" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stamp">
+        <PropertyRef Name="StampID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarStamp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarInfo__CarStat__6AEFE058">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarInfo__CarTran__690797E6">
+    <End Role="Transmission" Type="Self.Transmission" Multiplicity="1" />
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transmission">
+        <PropertyRef Name="TransmissionID" />
+      </Principal>
+      <Dependent Role="CarInfo">
+        <PropertyRef Name="CarTransmission" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client__ClientUs__1387E197">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="ClientUserAdd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientFil__CFile__1E05700A">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ClientFiles" Type="Self.ClientFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ClientFiles">
+        <PropertyRef Name="CFileUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientFil__Clien__1D114BD1">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ClientFiles" Type="Self.ClientFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="ClientFiles">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientPen__Clien__21D600EE">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ClientPenalties" Type="Self.ClientPenalties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="ClientPenalties">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientPen__CPArt__22CA2527">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="ClientPenalties" Type="Self.ClientPenalties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ArticleID" />
+      </Principal>
+      <Dependent Role="ClientPenalties">
+        <PropertyRef Name="CPArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientPen__CPCar__20E1DCB5">
+    <End Role="CarInfo" Type="Self.CarInfo" Multiplicity="1" />
+    <End Role="ClientPenalties" Type="Self.ClientPenalties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarInfo">
+        <PropertyRef Name="CarID" />
+      </Principal>
+      <Dependent Role="ClientPenalties">
+        <PropertyRef Name="CPCarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DriverLic__Clien__1A34DF26">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="DriverLicense" Type="Self.DriverLicense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="DriverLicense">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Messages__MsgCli__25A691D2">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="MsgClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Passports__Clien__16644E42">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Passports" Type="Self.Passports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Passports">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Passports__PGive__1758727B">
+    <End Role="DivisionsFMS" Type="Self.DivisionsFMS" Multiplicity="1" />
+    <End Role="Passports" Type="Self.Passports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DivisionsFMS">
+        <PropertyRef Name="DivisionFMSID" />
+      </Principal>
+      <Dependent Role="Passports">
+        <PropertyRef Name="PGivenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__RoleName__25DB9BFC">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CarRentalModelContainer">
+    <EntitySet Name="Actions" EntityType="Self.Actions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Body" EntityType="Self.Body" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarInfo" EntityType="Self.CarInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientFiles" EntityType="Self.ClientFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientPenalties" EntityType="Self.ClientPenalties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DivisionsFMS" EntityType="Self.DivisionsFMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Drive" EntityType="Self.Drive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DriverLicense" EntityType="Self.DriverLicense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passports" EntityType="Self.Passports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stamp" EntityType="Self.Stamp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transmission" EntityType="Self.Transmission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CarInfo__CarBody__662B2B3B" Association="Self.FK__CarInfo__CarBody__662B2B3B">
+      <End Role="Body" EntitySet="Body" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarInfo__CarClas__671F4F74" Association="Self.FK__CarInfo__CarClas__671F4F74">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarInfo__CarColo__681373AD" Association="Self.FK__CarInfo__CarColo__681373AD">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarInfo__CarDriv__69FBBC1F" Association="Self.FK__CarInfo__CarDriv__69FBBC1F">
+      <End Role="Drive" EntitySet="Drive" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarInfo__CarMode__6442E2C9" Association="Self.FK__CarInfo__CarMode__6442E2C9">
+      <End Role="Model" EntitySet="Model" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarInfo__CarStam__65370702" Association="Self.FK__CarInfo__CarStam__65370702">
+      <End Role="Stamp" EntitySet="Stamp" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarInfo__CarStat__6AEFE058" Association="Self.FK__CarInfo__CarStat__6AEFE058">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarInfo__CarTran__690797E6" Association="Self.FK__CarInfo__CarTran__690797E6">
+      <End Role="Transmission" EntitySet="Transmission" />
+      <End Role="CarInfo" EntitySet="CarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client__ClientUs__1387E197" Association="Self.FK__Client__ClientUs__1387E197">
+      <End Role="User" EntitySet="User" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientFil__CFile__1E05700A" Association="Self.FK__ClientFil__CFile__1E05700A">
+      <End Role="User" EntitySet="User" />
+      <End Role="ClientFiles" EntitySet="ClientFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientFil__Clien__1D114BD1" Association="Self.FK__ClientFil__Clien__1D114BD1">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ClientFiles" EntitySet="ClientFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientPen__Clien__21D600EE" Association="Self.FK__ClientPen__Clien__21D600EE">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ClientPenalties" EntitySet="ClientPenalties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientPen__CPArt__22CA2527" Association="Self.FK__ClientPen__CPArt__22CA2527">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="ClientPenalties" EntitySet="ClientPenalties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientPen__CPCar__20E1DCB5" Association="Self.FK__ClientPen__CPCar__20E1DCB5">
+      <End Role="CarInfo" EntitySet="CarInfo" />
+      <End Role="ClientPenalties" EntitySet="ClientPenalties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DriverLic__Clien__1A34DF26" Association="Self.FK__DriverLic__Clien__1A34DF26">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="DriverLicense" EntitySet="DriverLicense" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Messages__MsgCli__25A691D2" Association="Self.FK__Messages__MsgCli__25A691D2">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Passports__Clien__16644E42" Association="Self.FK__Passports__Clien__16644E42">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Passports" EntitySet="Passports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Passports__PGive__1758727B" Association="Self.FK__Passports__PGive__1758727B">
+      <End Role="DivisionsFMS" EntitySet="DivisionsFMS" />
+      <End Role="Passports" EntitySet="Passports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__RoleName__25DB9BFC" Association="Self.FK__User__RoleName__25DB9BFC">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

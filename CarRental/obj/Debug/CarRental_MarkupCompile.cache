@@ -1,0 +1,20 @@
+﻿CarRental
+
+
+winexe
+C#
+.cs
+C:\Учебный материал\4 Курс\CarRental\CarRental\obj\Debug\
+CarRental
+none
+false
+DEBUG;TRACE
+C:\Учебный материал\4 Курс\CarRental\CarRental\App.xaml
+16-1595628359
+2699018803
+24-945886052
+241932187024
+Forms\Authorization.xaml;Forms\ClientFileInfo.xaml;Forms\ClientInfoWindow.xaml;Forms\ClientMessageInfo.xaml;Forms\ClientPenaltieInfo.xaml;Forms\MainWindow.xaml;Forms\PageFrame\ClientPage.xaml;Forms\PageFrame\EmailPage.xaml;Forms\PageFrame\ListCar.xaml;Forms\PageFrame\PenaltiesPage.xaml;Forms\Window1.xaml;Forms\WindowMessage\AuthorizationCodeWindow.xaml;Forms\WindowMessage\ErrorWindows.xaml;Forms\WindowMessage\SuccessfulWindows.xaml;Style\ButtonStyle.xaml;Style\Colors.xaml;
+
+True
+

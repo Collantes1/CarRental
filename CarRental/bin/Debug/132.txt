@@ -1,0 +1,78 @@
+using System.Data.SqlClient;
+using System.Data;
+ClassTotal.cs - подключение базы данных
+        public static string connectionString = @"Data Source=VITALY; " +
+            "Initial Catalog=VideoFilmsRental; " +
+            "Integrated Security=True; " +
+            "multipleactiveresultsets=True";
+        public static SqlConnection connection;
+        public static int IDRole;
+        public static int ID_User;
+
+login.cs - авторизация
+using System.Data.SqlClient;
+
+public Login()
+{
+            pictureBox2.Image = Properties.Resources.logo;
+}
+
+// Получение входных данных
+            string login = this.LoginBox.Text;
+            string password = this.PasswordBox.Text;
+            // Формирование параметризованный запрос к таблице [Users]
+            SqlCommand command = ClassTotal.connection.CreateCommand();
+            string commandText = "SELECT * FROM [Users] WHERE [Email] = @Email AND [Password] = @Password";
+            command.CommandType = CommandType.Text;
+            command.CommandText = commandText;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@Email", login);
+            command.Parameters.AddWithValue("@Password", password);
+            // Выполнение запроса - получение записей, подходящих под запрос с каптчей
+            SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows) //Проверка подходящих записей в запросе
+                {
+                    if (reader.Read())
+                    {
+                        if ((bool)reader["Active"]) // Проверка учетной записи на Активность
+                        {
+                            ClassTotal.ID_User = (int)reader["IDUser"];
+                            ClassTotal.IDRole = (int)reader["IDRole"]; // Считывает роль, под которой заходит пользователь
+                            if (ClassTotal.IDRole == 1)
+                            {
+                                MessageBox.Show("Вы успешно вошли в систему как Администратор");
+                                this.Close();
+                                AdminMenu a = new AdminMenu();
+                                a.ShowDialog();
+                            }
+                            if (ClassTotal.IDRole == 2)
+                            {
+                                MessageBox.Show("Вы успешно вошли в систему как Менеджер");
+                                this.Close();
+                                ManagerMenu b = new ManagerMenu();
+                                b.ShowDialog();
+
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ваша учетная запись неактивина");
+                            CaptchaBox.Image = this.CreateImage(CaptchaBox.Width, CaptchaBox.Height);
+                            CaptchatextBox.Clear();
+                        }
+                    }
+                    reader.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Вы не зарегистрированы в системе, либо ввели неправильные данные. Повторите попытку");
+                    CaptchaBox.Image = this.CreateImage(CaptchaBox.Width, CaptchaBox.Height);
+                    CaptchatextBox.Clear();
+                }
+            }
+            reader.Close();
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }

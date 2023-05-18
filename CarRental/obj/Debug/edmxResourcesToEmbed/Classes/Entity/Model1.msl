@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CarRentalModelContainer" CdmEntityContainer="CarRentalEntities2">
+    <EntitySetMapping Name="Actions">
+      <EntityTypeMapping TypeName="CarRentalModel.Actions">
+        <MappingFragment StoreEntitySet="Actions">
+          <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="CarRentalModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+          <ScalarProperty Name="ArticleName" ColumnName="ArticleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Body">
+      <EntityTypeMapping TypeName="CarRentalModel.Body">
+        <MappingFragment StoreEntitySet="Body">
+          <ScalarProperty Name="BodyID" ColumnName="BodyID" />
+          <ScalarProperty Name="BodyName" ColumnName="BodyName" />
+          <ScalarProperty Name="BodyNumberPlace" ColumnName="BodyNumberPlace" />
+          <ScalarProperty Name="BodyNumberDoors" ColumnName="BodyNumberDoors" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarInfo">
+      <EntityTypeMapping TypeName="CarRentalModel.CarInfo">
+        <MappingFragment StoreEntitySet="CarInfo">
+          <ScalarProperty Name="CarID" ColumnName="CarID" />
+          <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+          <ScalarProperty Name="CarStamp" ColumnName="CarStamp" />
+          <ScalarProperty Name="CarBody" ColumnName="CarBody" />
+          <ScalarProperty Name="CarClass" ColumnName="CarClass" />
+          <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+          <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+          <ScalarProperty Name="CarEngineCapacity" ColumnName="CarEngineCapacity" />
+          <ScalarProperty Name="CarEnginePower" ColumnName="CarEnginePower" />
+          <ScalarProperty Name="CarTransmission" ColumnName="CarTransmission" />
+          <ScalarProperty Name="CarDrive" ColumnName="CarDrive" />
+          <ScalarProperty Name="CarOverclocking" ColumnName="CarOverclocking" />
+          <ScalarProperty Name="CarFuelConsumption" ColumnName="CarFuelConsumption" />
+          <ScalarProperty Name="CarFuelType" ColumnName="CarFuelType" />
+          <ScalarProperty Name="CarTankCapacity" ColumnName="CarTankCapacity" />
+          <ScalarProperty Name="CarTankVolume" ColumnName="CarTankVolume" />
+          <ScalarProperty Name="CarMileage" ColumnName="CarMileage" />
+          <ScalarProperty Name="CarPriceDay" ColumnName="CarPriceDay" />
+          <ScalarProperty Name="CarPhoto" ColumnName="CarPhoto" />
+          <ScalarProperty Name="CarStatus" ColumnName="CarStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class">
+      <EntityTypeMapping TypeName="CarRentalModel.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="CarRentalModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ClientPatronymic" ColumnName="ClientPatronymic" />
+          <ScalarProperty Name="ClientGender" ColumnName="ClientGender" />
+          <ScalarProperty Name="ClientBirthDate" ColumnName="ClientBirthDate" />
+          <ScalarProperty Name="ClientBirthPlace" ColumnName="ClientBirthPlace" />
+          <ScalarProperty Name="ClientWorkPlace" ColumnName="ClientWorkPlace" />
+          <ScalarProperty Name="ClientSendingSMS" ColumnName="ClientSendingSMS" />
+          <ScalarProperty Name="ClientBlackList" ColumnName="ClientBlackList" />
+          <ScalarProperty Name="ClientNumberPhone" ColumnName="ClientNumberPhone" />
+          <ScalarProperty Name="ClientOtherNumberPhone" ColumnName="ClientOtherNumberPhone" />
+          <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
+          <ScalarProperty Name="ClientOtherInfo" ColumnName="ClientOtherInfo" />
+          <ScalarProperty Name="ClientPhoto" ColumnName="ClientPhoto" />
+          <ScalarProperty Name="ClientUserAdd" ColumnName="ClientUserAdd" />
+          <ScalarProperty Name="ClientUserAddDate" ColumnName="ClientUserAddDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientFiles">
+      <EntityTypeMapping TypeName="CarRentalModel.ClientFiles">
+        <MappingFragment StoreEntitySet="ClientFiles">
+          <ScalarProperty Name="ClientFileID" ColumnName="ClientFileID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="CFileName" ColumnName="CFileName" />
+          <ScalarProperty Name="CFileDescription" ColumnName="CFileDescription" />
+          <ScalarProperty Name="CFileDate" ColumnName="CFileDate" />
+          <ScalarProperty Name="CFileUser" ColumnName="CFileUser" />
+          <ScalarProperty Name="CFileData" ColumnName="CFileData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientPenalties">
+      <EntityTypeMapping TypeName="CarRentalModel.ClientPenalties">
+        <MappingFragment StoreEntitySet="ClientPenalties">
+          <ScalarProperty Name="CPenaltiesID" ColumnName="CPenaltiesID" />
+          <ScalarProperty Name="CPDateOfViolation" ColumnName="CPDateOfViolation" />
+          <ScalarProperty Name="CPDateOfTheResolution" ColumnName="CPDateOfTheResolution" />
+          <ScalarProperty Name="CPCarID" ColumnName="CPCarID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="CPArticleID" ColumnName="CPArticleID" />
+          <ScalarProperty Name="CPAmountOfTheFine" ColumnName="CPAmountOfTheFine" />
+          <ScalarProperty Name="CPDiscountedAmount" ColumnName="CPDiscountedAmount" />
+          <ScalarProperty Name="CPPaidFor" ColumnName="CPPaidFor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Color">
+      <EntityTypeMapping TypeName="CarRentalModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionsFMS">
+      <EntityTypeMapping TypeName="CarRentalModel.DivisionsFMS">
+        <MappingFragment StoreEntitySet="DivisionsFMS">
+          <ScalarProperty Name="DivisionFMSID" ColumnName="DivisionFMSID" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="DivisionCode" ColumnName="DivisionCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drive">
+      <EntityTypeMapping TypeName="CarRentalModel.Drive">
+        <MappingFragment StoreEntitySet="Drive">
+          <ScalarProperty Name="DriveID" ColumnName="DriveID" />
+          <ScalarProperty Name="DriveName" ColumnName="DriveName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverLicense">
+      <EntityTypeMapping TypeName="CarRentalModel.DriverLicense">
+        <MappingFragment StoreEntitySet="DriverLicense">
+          <ScalarProperty Name="DriverLicenseID" ColumnName="DriverLicenseID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="DLNumber" ColumnName="DLNumber" />
+          <ScalarProperty Name="DLIssued" ColumnName="DLIssued" />
+          <ScalarProperty Name="DLDateOfIssue" ColumnName="DLDateOfIssue" />
+          <ScalarProperty Name="DLValid" ColumnName="DLValid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="CarRentalModel.Messages">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="MsgSender" ColumnName="MsgSender" />
+          <ScalarProperty Name="MsgClientID" ColumnName="MsgClientID" />
+          <ScalarProperty Name="MsgTema" ColumnName="MsgTema" />
+          <ScalarProperty Name="MsgBody" ColumnName="MsgBody" />
+          <ScalarProperty Name="MsgSendingTime" ColumnName="MsgSendingTime" />
+          <ScalarProperty Name="MsgStatus" ColumnName="MsgStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Model">
+      <EntityTypeMapping TypeName="CarRentalModel.Model">
+        <MappingFragment StoreEntitySet="Model">
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passports">
+      <EntityTypeMapping TypeName="CarRentalModel.Passports">
+        <MappingFragment StoreEntitySet="Passports">
+          <ScalarProperty Name="PassportID" ColumnName="PassportID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="PCountryOfIssue" ColumnName="PCountryOfIssue" />
+          <ScalarProperty Name="PSeries" ColumnName="PSeries" />
+          <ScalarProperty Name="PNumber" ColumnName="PNumber" />
+          <ScalarProperty Name="PGivenID" ColumnName="PGivenID" />
+          <ScalarProperty Name="PDateOfIssue" ColumnName="PDateOfIssue" />
+          <ScalarProperty Name="PRegistration" ColumnName="PRegistration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="CarRentalModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stamp">
+      <EntityTypeMapping TypeName="CarRentalModel.Stamp">
+        <MappingFragment StoreEntitySet="Stamp">
+          <ScalarProperty Name="StampID" ColumnName="StampID" />
+          <ScalarProperty Name="StampName" ColumnName="StampName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="CarRentalModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CarRentalModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transmission">
+      <EntityTypeMapping TypeName="CarRentalModel.Transmission">
+        <MappingFragment StoreEntitySet="Transmission">
+          <ScalarProperty Name="TransmissionID" ColumnName="TransmissionID" />
+          <ScalarProperty Name="TransmissionName" ColumnName="TransmissionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="CarRentalModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPatronymic" ColumnName="UserPatronymic" />
+          <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhoneNumber" ColumnName="UserPhoneNumber" />
+          <ScalarProperty Name="UserAccess" ColumnName="UserAccess" />
+          <ScalarProperty Name="UserUniqueCode" ColumnName="UserUniqueCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
